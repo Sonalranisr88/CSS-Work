@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>CSS Dispaly property</title>
-        <style>
-            p{
-                color:white;
-            }
-            .red{
-                display:block;
-                width: 200px;
-                height:200px;
-                background-color: red;
-            }
-
-            .green{
-                display:block;
-                width: 200px;
-                height:200px;
-                background-color: green;
-            } 
-            .blue{
-                display:block;
-                width: 200px;
-                height:200px;
-                background-color: blue;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>CSS Display Property</h1>
-        <div class="red">
-            <p>Red paragraph</p>
-        </div>
-        <div class="green">
-            <p>Green paragraph</p>
-        </div>
-        <div class="blue">
-            <p>Blue paragraph</p>
-        </div>
-    </body>
+<head>
+    <title>Float Property</title>
+    <style>
+        div{
+            display:inline-block;
+            width:40%
+        }
+        p{
+            font-size:2em;
+        }
+        .cat{
+            background-color: aquamarine;
+            float:left
+        }
+        .dog{
+            background-color: coral;
+            float:right
+        }
+        footer{
+            text-align: center;
+            background-color: blueviolet;
+            clear:both;
+        }
+        img{
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <div class="cat">
+        <h2>CatCSS</h2>
+        <img src="data:image/jpeg;base64,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">
+        <p class="first paragraph">The cat is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae and is commonly referred to as the domestic cat or house cat to distinguish it from the wild members of the family.</p>
+    </div>
+    <div class="dog">
+        <h2>DogCSS</h2>
+        <img src="data:image/jpeg;base64,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">
+        <p class="second-paragrah">The dog is a domesticated descendant of the wolf. Also called the domestic dog, it is derived from extinct Pleistocene wolves, and the modern wolf is the dog's nearest living relative. Dogs were the first species to be domesticated by hunter-gatherers over 15,000 years ago before the development of agriculture.</p>
+    </div>
+    <footer>copyright.This is a footer</footer>
+</body>
 </html>
