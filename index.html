@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Box</title>
-        <link rel="stylesheet" href="style.css">
+        <title>CSS Dispaly property</title>
+        <style>
+            p{
+                color:white;
+            }
+            .red{
+                display:block;
+                width: 200px;
+                height:200px;
+                background-color: red;
+            }
+
+            .green{
+                display:block;
+                width: 200px;
+                height:200px;
+                background-color: green;
+            } 
+            .blue{
+                display:block;
+                width: 200px;
+                height:200px;
+                background-color: blue;
+            }
+        </style>
     </head>
     <body>
-        <div id="outer-box" class="box">
-            <div class="box">
-                <p>Yellow Text</p>
-                <div class="inner-box">
-                    <p class="white-text">White Text</p>
-                </div>
-            </div>
-            <div class="box">
-                <p>Yellow Text</p>
-                <div class="inner-box">
-                    <p class="white-text">White Text</p>
-                </div>
-            </div>
+        <h1>CSS Display Property</h1>
+        <div class="red">
+            <p>Red paragraph</p>
+        </div>
+        <div class="green">
+            <p>Green paragraph</p>
+        </div>
+        <div class="blue">
+            <p>Blue paragraph</p>
         </div>
     </body>
 </html>
