@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid Project</title>
+        <style>
+            .container{
+                height:100vh;
+                display:grid;
+                gap: 3rem;
+                grid-template-columns: 1fr 1fr 1.5fr;
+                grid-template-rows: 1fr 1fr;
+            }
+            .item{
+                font-size: 5rem;
+                color: white;
+                font-family: Arial;
+                background-color: purple;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .cowboy{
+                background-color: blue;
+                grid-column: span 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class ="container">
+            <div class="item cowboy">@</div>
+            <div class="item astronaut">$</div>
+            <div class="item book">&</div>
+        </div>
+    </body>
+</html>
