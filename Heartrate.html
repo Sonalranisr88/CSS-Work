@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heart Rate Monitor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
+    </div> -->
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+    //   labels: ['1', '2', '3', '4', '5', '6', '7','8'],
+      datasets: [{
+        label: 'Heart Rate',
+        data: [
+            {
+                score:30,
+                rawDate:'1',
+                phase: 'B'
+            },
+
+            {
+                score:60,
+                rawDate:'2',
+                phase: 'C'
+            },
+
+            {   score:130,
+                rawDate:'3',
+                phase: 'A'
+            },
+
+            {
+                score:-30,
+                rawDate:'4',
+                phase: 'B'
+            },
+
+            {
+                score:125,
+                rawDate:'5',
+                phase: 'A'
+        },
+
+            {
+                score:50,
+                rawDate:'6',
+                phase: 'B'
+        },
+
+            {
+                score:90,
+                rawDate:'7',
+                phase: 'C'
+        },
+
+            {
+                score:100,
+                rawDate:'8',
+                phase: 'C'
+        },
+            
+        ],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+       pointBorderColor : 'black',
+        segment:{
+            borderColor:((ctx) => {
+             console.log(ctx)
+             console.log(ctx.p0.raw.phase)
+             const phaseColours ={
+               A:'rgba(255, 26, 104, 1)',
+               B:'rgba(255, 206, 86, 1)',
+               C:'rgba(75, 192, 192, 1)'
+             };
+
+             return phaseColours[ctx.p0.raw.phase];
+            })
+
+        },
+        borderWidth: 3
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'line',
+      data,
+      options: {
+          parsing:{
+                xAxisKey: 'rawDate',
+                yAxisKey: 'score'
+          },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>
